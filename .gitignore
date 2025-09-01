@@ -3,6 +3,9 @@ build/
 install/
 log/
 
+# Runtime artifacts
+captured_images/
+
 # Python bytecode
 __pycache__/
 *.py[cod]

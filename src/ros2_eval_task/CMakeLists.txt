@@ -8,6 +8,9 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(gazebo_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(OpenCV REQUIRED)
 
 # ---------------- Install Python Modules ----------------
 ament_python_install_package(${PROJECT_NAME})
@@ -50,10 +53,12 @@ ament_target_dependencies(model_spawner_node
   rclcpp
   geometry_msgs
   ament_index_cpp
+  sensor_msgs
+  cv_bridge
 )
 
-# Link against our gazebo_utils library
-target_link_libraries(model_spawner_node gazebo_utils)
+# Link against our gazebo_utils library and OpenCV
+target_link_libraries(model_spawner_node gazebo_utils ${OpenCV_LIBS})
 
 # Install the executable
 install(TARGETS model_spawner_node
