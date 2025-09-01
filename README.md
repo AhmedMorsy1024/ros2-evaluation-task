@@ -140,7 +140,7 @@ sudo apt install \
 
 ```bash
 # Build the workspace
-colcon build --packages-select ros2_eval_task
+colcon build --symlink-install 
 
 # Source the workspace
 source install/setup.bash
