@@ -20,6 +20,9 @@
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>gazebo_msgs</depend>
+  <depend>gazebo_ros</depend>
+  <depend>rviz2</depend>
+  <depend>ament_index_cpp</depend>
   <depend>visualization_msgs</depend>
   <depend>ament_index_python</depend>
 

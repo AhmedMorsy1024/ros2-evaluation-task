@@ -7,6 +7,7 @@ find_package(rclpy REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(gazebo_msgs REQUIRED)
+find_package(ament_index_cpp REQUIRED)
 
 # ---------------- Install Python Modules ----------------
 ament_python_install_package(${PROJECT_NAME})
@@ -39,6 +40,24 @@ install(DIRECTORY include/
 # Export the library for other packages to use
 ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
 ament_export_dependencies(rclcpp geometry_msgs gazebo_msgs)
+
+# ---------------- C++ Executables ----------------
+# Model spawner node executable
+add_executable(model_spawner_node src/model_spawner_node.cpp)
+
+# Link dependencies to the executable
+ament_target_dependencies(model_spawner_node
+  rclcpp
+  geometry_msgs
+  ament_index_cpp
+)
+
+# Link against our gazebo_utils library
+target_link_libraries(model_spawner_node gazebo_utils)
+
+# Install the executable
+install(TARGETS model_spawner_node
+  DESTINATION lib/${PROJECT_NAME})
 
 # ---------------- Install Launch, RViz, and Worlds ----------------
 install(DIRECTORY
