@@ -1,0 +1,32 @@
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C++ build artifacts
+*.o
+*.so
+*.dylib
+*.exe
+*.out
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
